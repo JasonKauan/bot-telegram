@@ -5,9 +5,15 @@ api = bot_config.API_TOKEN
 bot = telebot.TeleBot(api)
 
 
-@bot.message_handler(commands=['start', 'help'])
+
+
+
+def verificar(message):
+    return True
+
+@bot.message_handler(func = verificar)
 def responder(message):
-    bot.reply_to(message, "Hello, I am a bot!")
+    bot.reply_to(message, "Jason é corno")
 
 
 
