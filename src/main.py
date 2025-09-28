@@ -1,4 +1,11 @@
-import bot_config
+from env import bot_config
+import telebot
 
-bot_config.API_TOKEN = bot_config.API_TOKEN
+api = bot_config.API_TOKEN
+print(api)
+bot = telebot.TeleBot(api)
+
+
+
+
 
