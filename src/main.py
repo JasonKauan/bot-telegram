@@ -13,10 +13,16 @@ def opc1(message):
     # bot.send_message precisa do parametro de chat e id para enviar, alem da message
 
 
-@bot.message_handler(commands=["opc2"])
-def opc2(message):
-    print(message)
-    bot.reply_to(message, "teste2")
+
+# Enviar documento
+@bot.message_handler(commands=['opc2'])
+def enviar_doc(message):
+    with open("C:\\Users\\rapha\OneDrive\Projetos\env\Livro_antiotario\capa.jpg", "rb") as img:
+        bot.send_photo(message.chat.id, img)
+    with open("C:\\Users\\rapha\OneDrive\Projetos\env\Livro_antiotario\Antiotario-Um-caminho-sem-volta-Rafael-Aires.pdf", "rb") as doc:
+        bot.send_document(message.chat.id, doc)
+    bot.send_message(message.chat.id, "Aqui está seu arquivo 📄")
+
 
 
 @bot.message_handler(commands=["opc3"])
